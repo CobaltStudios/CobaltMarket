@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.creepster:Core:jar">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/creepster/Core/jar/Core-jar.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/creepster/Core/jar/Core-jar-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/creepster/Core/jar/Core-jar-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
