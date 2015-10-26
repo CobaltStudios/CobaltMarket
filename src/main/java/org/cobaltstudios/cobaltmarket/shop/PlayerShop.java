@@ -8,8 +8,7 @@ package org.cobaltstudios.cobaltmarket.shop;
 import java.util.UUID;
 
 import org.cobaltstudios.cobaltmarket.utils.SerializeUtils;
-import org.spongepowered.api.item.inventory.Inventory;
-import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.inventory.Inventories;
 import org.spongepowered.api.item.inventory.custom.CustomInventory;
 import org.spongepowered.api.util.Direction;
 import org.spongepowered.api.world.Location;
@@ -21,8 +20,8 @@ import org.spongepowered.api.world.Location;
 public class PlayerShop extends Shop {
     private int itemStock;
     
-    public PlayerShop(CustomInventory item, double price, UUID owner, int stock, Location location, Direction direction) {
-        setShopInventory(item);
+    public PlayerShop(UUID owner, double price, int stock, Location location, Direction direction) {
+        setShopInventory(Inventories.customInventoryBuilder().size(5).build());
         setPrice(price);
         setOwner(owner);
         setLocation(location);

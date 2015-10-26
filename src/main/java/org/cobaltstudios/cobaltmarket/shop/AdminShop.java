@@ -8,6 +8,7 @@ package org.cobaltstudios.cobaltmarket.shop;
 import java.util.UUID;
 
 import org.cobaltstudios.cobaltmarket.utils.SerializeUtils;
+import org.spongepowered.api.item.inventory.Inventories;
 import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.item.inventory.custom.CustomInventory;
@@ -20,8 +21,8 @@ import org.spongepowered.api.world.Location;
  */
 public class AdminShop extends Shop {
     
-    public AdminShop(CustomInventory item, double price, UUID owner, Location location, Direction direction) {
-        setShopInventory(item);
+    public AdminShop(UUID owner, double price, Location location, Direction direction) {
+        setShopInventory(Inventories.customInventoryBuilder().size(5).build());
         setPrice(price);
         setOwner(owner);
         setLocation(location);
