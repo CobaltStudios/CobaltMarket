@@ -9,6 +9,7 @@ import com.google.inject.Inject;
 import java.io.File;
 import java.util.Optional;
 import me.creepsterlgc.core.api.CoreAPI;
+import org.cobaltstudios.cobaltmarket.shop.ShopManager;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.game.state.GameStartedServerEvent;
@@ -30,11 +31,14 @@ public class CobaltMarket {
     
     @Inject
     private static Game game;
+
+    private static ShopManager shopManager;
     
     @Listener
     public void onServerStart(GameStartedServerEvent event) {
         Optional<CoreAPI> optional = game.getServiceManager().provide(CoreAPI.class);
         if(optional.isPresent()) coreAPI = optional.get();
+        shopManager = new ShopManager(game);
     }
     
     @Listener
@@ -48,5 +52,9 @@ public class CobaltMarket {
 
     public static Game getGame() {
         return game;
+    }
+
+    public static ShopManager getShopManager() {
+        return shopManager;
     }
 }

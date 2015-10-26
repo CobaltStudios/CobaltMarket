@@ -1,6 +1,9 @@
 package org.cobaltstudios.cobaltmarket.utils;
 
 import org.cobaltstudios.cobaltmarket.CobaltMarket;
+import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.inventory.custom.CustomInventory;
+import org.spongepowered.api.item.inventory.property.SlotIndex;
 import org.spongepowered.api.world.Location;
 
 import java.util.HashMap;
@@ -86,6 +89,21 @@ public class SerializeUtils {
 
         for(int i = 1; i<=3; i++) serialized.deleteCharAt(serialized.length() - 1);
 
+        return serialized.toString();
+    }
+
+    public static String inventory(CustomInventory inventory) {
+        String sep = "-;;";
+        StringBuilder serialized = new StringBuilder();
+        serialized.append(inventory.getName());
+        serialized.append(sep);
+        for(int i = 0; i < inventory.size(); i++) {
+            ItemStack is = inventory.poll(SlotIndex.of(i)).get();
+            if(!(is == null)) {
+                serialized.append(is.getItem().getId()+"-;;;"+is.getQuantity());
+                serialized.append(sep);
+            }
+        }
         return serialized.toString();
     }
 }

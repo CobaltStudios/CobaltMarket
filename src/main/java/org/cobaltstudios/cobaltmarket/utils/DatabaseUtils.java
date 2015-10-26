@@ -1,6 +1,8 @@
 package org.cobaltstudios.cobaltmarket.utils;
 
+import org.cobaltstudios.cobaltmarket.CobaltMarket;
 import org.cobaltstudios.cobaltmarket.shop.AdminShop;
+import org.cobaltstudios.cobaltmarket.shop.PlayerShop;
 import org.cobaltstudios.cobaltmarket.shop.Shop;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.service.sql.SqlService;
@@ -40,7 +42,7 @@ public class DatabaseUtils {
             }
 
             if(!tables.contains("stores")) {
-                execute("CREATE TABLE stores (uuid TEXT, owner TEXT, x DOUBLE, y DOUBLE, z DOUBLE, yaw DOUBLE, pitch DOUBLE, cost DOUBLE, inventory TEXT, type TINYINT)");
+                execute("CREATE TABLE stores (uuid TEXT, owner TEXT, location TEXT, cost DOUBLE, inventory TEXT, direction TEXT, type TINYINT)");
             }
         } catch(SQLException e) {
             e.printStackTrace();
@@ -54,8 +56,11 @@ public class DatabaseUtils {
             ResultSet rs = s.executeQuery("SELECT * FROM stores");
             while(rs.next()) {
                 if(rs.getInt("type") == 0) { //Admin Store
-                    AdminShop adminShop = new AdminShop(DeserializeUtils.inventory(rs.getString("inventory")), rs.getDouble("price"), UUID.fromString(rs.getString("owner")), DeserializeUtils.location(rs.getString("direction")), Direction.valueOf(rs.getString("direction")));
-
+                    AdminShop adminShop = new AdminShop(UUID.fromString(rs.getString("uuid")), DeserializeUtils.inventory(rs.getString("inventory")), rs.getDouble("price"), UUID.fromString(rs.getString("owner")), DeserializeUtils.location(rs.getString("location")), Direction.valueOf(rs.getString("direction")));
+                    CobaltMarket.getShopManager().addShop(UUID.fromString(rs.getString("uuid")), adminShop);
+                } else {
+                    PlayerShop playerShop = new PlayerShop(UUID.fromString(rs.getString("uuid")), DeserializeUtils.inventory(rs.getString("inventory")), rs.getDouble("price"), UUID.fromString(rs.getString("owner")), rs.getInt("stock"), DeserializeUtils.location(rs.getString("location")), Direction.valueOf(rs.getString("direction")));
+                    CobaltMarket.getShopManager().addShop(UUID.fromString(rs.getString("uuid")), playerShop);
                 }
             }
             s.close();
@@ -96,9 +101,4 @@ public class DatabaseUtils {
     }
 
     public static void queue(String queue) { DatabaseUtils.queue.add(queue); }
-
-    private static HashMap<String, Object> shops = new HashMap<>();
-    public static void addShop(String uuid, Object shop) {
-        shops.put(uuid, shop);
-    }
 }
