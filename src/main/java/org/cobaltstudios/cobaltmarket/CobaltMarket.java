@@ -24,6 +24,7 @@ import org.spongepowered.api.service.config.DefaultConfig;
 @Plugin(id = "cobaltmarket", name = "CobaltMarket", version = "0.1", dependencies = "required-after:Core")
 public class CobaltMarket {
     private CoreAPI coreAPI;
+    private static String version;
     
     @Inject
     @DefaultConfig(sharedRoot = false)
@@ -57,4 +58,9 @@ public class CobaltMarket {
     public static ShopManager getShopManager() {
         return shopManager;
     }
+
+    public static String getVersion() {
+        return version;
+    }
+
 }
