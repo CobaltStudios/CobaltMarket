@@ -14,7 +14,7 @@ import org.spongepowered.api.util.command.spec.CommandSpec;
 /**
  * Created by iTidez on 10/25/15.
  */
-public class CommandManager implements CommandExecutor {
+public class CommandManager {
     private Game game;
     private CobaltMarket cm;
 
@@ -27,24 +27,18 @@ public class CommandManager implements CommandExecutor {
     public void registerCommands() {
         CommandSpec marketCommand = CommandSpec.builder()
                 .description(Texts.of("Info/Help for CobaltMarket"))
-                .executor(this)
-                .arguments(
-                        GenericArguments.literal(Texts.of("info"))
+                .executor(new InfoCommand())
+                .child(CommandSpec.builder()
+                                .executor(new InfoCommand())
+                                .build(), "info"
+                )
+                .child(CommandSpec.builder()
+                                .executor(new CreateCommand())
+                                .build(), "create"
                 )
                 .build();
 
         game.getCommandDispatcher().register(cm, marketCommand, "market", "mk");
-    }
-
-    @Override
-    public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        boolean hasNoArgs = false;
-        boolean info = args.getOne("info").isPresent();
-        if(info) hasNoArgs = true;
-        if(info || hasNoArgs) {
-            return new InfoCommand().execute(src, args);
-        }
-        return CommandResult.success();
     }
 
 }
