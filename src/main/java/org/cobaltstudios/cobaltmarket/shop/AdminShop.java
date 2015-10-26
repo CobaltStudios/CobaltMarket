@@ -6,7 +6,13 @@
 package org.cobaltstudios.cobaltmarket.shop;
 
 import java.util.UUID;
+
+import org.cobaltstudios.cobaltmarket.utils.SerializeUtils;
+import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.inventory.custom.CustomInventory;
+import org.spongepowered.api.util.Direction;
+import org.spongepowered.api.world.Location;
 
 /**
  *
@@ -14,15 +20,25 @@ import org.spongepowered.api.item.inventory.ItemStack;
  */
 public class AdminShop extends Shop {
     
-    public AdminShop(ItemStack item, double price, UUID owner) {
-        setItemSold(item);
+    public AdminShop(CustomInventory item, double price, UUID owner, Location location, Direction direction) {
+        setShopInventory(item);
         setPrice(price);
         setOwner(owner);
-        
+        setLocation(location);
+        setDirection(direction);
+        setID(UUID.fromString(SerializeUtils.location(location)));
+        init();
+    }
+
+    public AdminShop(UUID id, CustomInventory item, double price, UUID owner, Location location, Direction direction) {
+        setShopInventory(item);
+        setPrice(price);
+        setOwner(owner);
+        setLocation(location);
+        setDirection(direction);
+        setID(id);
         init();
     }
     
-    private void init() {
-        setPermission("admin");
-    }
+    private void init() { setPermission("admin"); }
 }

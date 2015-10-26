@@ -29,7 +29,7 @@ public class CobaltMarket {
     private File defaultConfig;
     
     @Inject
-    private Game game;
+    private static Game game;
     
     @Listener
     public void onServerStart(GameStartedServerEvent event) {
@@ -40,5 +40,13 @@ public class CobaltMarket {
     @Listener
     public void onServerStop(GameStoppingServerEvent event) {
         
+    }
+
+    private void initDatabase() {
+
+    }
+
+    public static Game getGame() {
+        return game;
     }
 }
