@@ -54,7 +54,7 @@ public class DeserializeUtils {
         for(String s : loc.split("-;;")) {
             switch(i) {
                 case 0:
-                    world = CobaltMarket.getGame().getServer().getWorld(s).get();
+                    world = CobaltMarket.getInstance().getGame().getServer().getWorld(s).get();
                     break;
                 case 1:
                     x = Integer.parseInt(s);

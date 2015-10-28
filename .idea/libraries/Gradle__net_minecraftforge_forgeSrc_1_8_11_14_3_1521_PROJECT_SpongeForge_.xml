@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.minecraftforge:forgeSrc:1.8-11.14.3.1521-PROJECT(SpongeForge)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../SpongeForge/.gradle/minecraft/forgeSrc-1.8-11.14.3.1521-PROJECT(SpongeForge).jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../SpongeForge/.gradle/minecraft/forgeSrc-1.8-11.14.3.1521-PROJECT(SpongeForge)-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

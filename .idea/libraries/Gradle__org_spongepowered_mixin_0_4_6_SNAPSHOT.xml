@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: org.spongepowered:mixin:0.4.6-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.4.6-SNAPSHOT/d7cf0cbff24a27161f3d78416f64534d02cc0c5d/mixin-0.4.6-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.4.6-SNAPSHOT/6afd4c7f61b519afffab552a07d450277d45dbc0/mixin-0.4.6-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.4.6-SNAPSHOT/e131c94d56caed1897b8ec12d9891d127a0fbf60/mixin-0.4.6-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

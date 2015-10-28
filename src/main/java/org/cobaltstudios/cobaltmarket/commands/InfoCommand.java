@@ -21,7 +21,7 @@ public class InfoCommand implements CommandExecutor {
 
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        PaginationService paginationService = CobaltMarket.getGame().getServiceManager().provide(PaginationService.class).get();
+        PaginationService paginationService = CobaltMarket.getInstance().getGame().getServiceManager().provide(PaginationService.class).get();
         PaginationBuilder builder = paginationService.builder();
         builder.title(Texts.of(TextColors.DARK_AQUA, "CobaltMarket - V"+CobaltMarket.getVersion()))
             .contents(

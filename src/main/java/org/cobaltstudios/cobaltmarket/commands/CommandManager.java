@@ -36,6 +36,15 @@ public class CommandManager {
                                 .executor(new CreateCommand())
                                 .build(), "create"
                 )
+                .child(CommandSpec.builder()
+                                .executor(new SqlCommand())
+                                .arguments(
+                                        GenericArguments.remainingJoinedStrings(Texts.of("query"))
+                                )
+                                .build(), "sql")
+                .child(CommandSpec.builder()
+                                .executor(new ListCommand())
+                                .build(), "list", "li", "l")
                 .build();
 
         game.getCommandDispatcher().register(cm, marketCommand, "market", "mk");

@@ -3,7 +3,6 @@ package org.cobaltstudios.cobaltmarket.utils;
 import org.cobaltstudios.cobaltmarket.CobaltMarket;
 import org.cobaltstudios.cobaltmarket.shop.AdminShop;
 import org.cobaltstudios.cobaltmarket.shop.PlayerShop;
-import org.cobaltstudios.cobaltmarket.shop.Shop;
 import org.spongepowered.api.Game;
 import org.spongepowered.api.service.sql.SqlService;
 import org.spongepowered.api.util.Direction;
@@ -11,7 +10,6 @@ import org.spongepowered.api.util.Direction;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import javax.sql.DataSource;
@@ -30,7 +28,7 @@ public class DatabaseUtils {
             sql = game.getServiceManager().provide(SqlService.class).get();
 
             File folder = new File("config/cobalt/market/data");
-            if(!folder.exists())    folder.mkdir();
+            if(!folder.exists())    folder.mkdirs();
 
             dataSource = sql.getDataSource("jdbc:sqlite:config/cobalt/market/data/shops.db");
             DatabaseMetaData metaData = dataSource.getConnection().getMetaData();

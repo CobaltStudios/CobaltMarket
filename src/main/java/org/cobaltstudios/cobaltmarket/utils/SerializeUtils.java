@@ -79,7 +79,7 @@ public class SerializeUtils {
     public static String location(Location location) {
         String sep = "-;;";
         StringBuilder serialized = new StringBuilder();
-        serialized.append(CobaltMarket.getGame().getServer().getDefaultWorld().get().getWorldName());
+        serialized.append(CobaltMarket.getInstance().getGame().getServer().getDefaultWorld().get().getWorldName());
         serialized.append(sep);
         serialized.append(location.getBlockX());
         serialized.append(sep);

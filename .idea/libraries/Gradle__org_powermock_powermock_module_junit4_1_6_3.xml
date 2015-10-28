@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.3/afb2b911385eeec4b2d2bddc29d1cdb953cb88a1/powermock-module-junit4-1.6.3.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.3/d047c5b34b4d251257e74e5cb7b423ff26580d33/powermock-module-junit4-1.6.3-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.powermock/powermock-module-junit4/1.6.3/5c506ab16a4e29f0cbe6b94eb68a612305efbbad/powermock-module-junit4-1.6.3-sources.jar!/" />
     </SOURCES>
